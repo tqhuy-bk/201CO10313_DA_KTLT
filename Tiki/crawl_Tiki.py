@@ -1,7 +1,7 @@
 from lxml import html
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from bs4 import BeautifulSoup 
+ 
 import csv
 
 def get_html(url):
@@ -22,18 +22,19 @@ def get_html(url):
     return html_source
 
 if __name__ == '__main__':
-    url = 'https://tiki.vn/deal-hot?src=header_label&_lc=Vk4wMzQwMjAwMDM%253D&tab=now&page=1'
-    
-    html_tree = html.fromstring(get_html(url))
-
+    url = ['https://tiki.vn/dien-thoai-may-tinh-bang/c1789?src=c.1789.hamburger_menu_fly_out_banner','https://tiki.vn/tivi-thiet-bi-nghe-nhin/c4221?src=c.4221.hamburger_menu_fly_out_banner']
     with open('output.scv','w', encoding="utf8") as csv_file:
         writer = csv.writer(csv_file)
         writer.writerow(['Title','Price Current','Price Original'])
-        for product in html_tree.xpath("//a[@class='Item__Wrapper-m1oy8w-0 gJJtEe']"):
-            title = product.xpath("./div[@class='title']/text()")
-            price_current = product.xpath("./p[@class='price']/text()")
-            price_original = product.xpath(".//span[@class='original deal']/text()")
-            writer.writerow([title,price_current,price_original])
+        for x in url:
+            html_tree = html.fromstring(get_html(x))
+
+            
+            for product in html_tree.xpath("//a[@class='product-item']"):
+                title = product.xpath(".//div[@class='name']/span/text()")
+                price_current = product.xpath(".//div[@class='price-discount__price']/text()")
+                price_original = product.xpath(".//div[@class='price-discount__discount']/text()") 
+                writer.writerow([title,price_current,price_original])
 
     
 
