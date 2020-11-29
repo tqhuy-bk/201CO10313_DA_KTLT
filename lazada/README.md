@@ -1,6 +1,9 @@
 # Giới thiệu
 Đây là một crawler đơn giản sử dụng Selenium để thu thập dữ liệu giá thành của sản phẩm trên trang thương mại điện tử [Lazada](https://www.lazada.vn/).
 # Những việc đã làm và giải thích mã nguồn
+### Cách sử dụng Source Code:
+Sau khi cài đặt Selenium và tải source về giải nén sau đó chạy trong Command line bằng lệnh:<br>
+```python crawl.py```
 ### Cài đặt Selenium
 Trang web Lazada cũng cấm bot crawl dữ liệu và dữ liệu được trả về bằng javascript trang nên nhóm đã sử dụng Selenium giả lập Client để có thể crawl dữ liệu.
 Em cài đặt [Selenium](https://www.selenium.dev/), sau đó tải thêm  ```chromedriver.exe``` để có thể điều khiển được Chrome.
