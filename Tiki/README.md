@@ -1,6 +1,9 @@
 # Giới thiệu
 Đây là một crawler đơn giản sử dụng Selenium để thu thập dữ liệu giá thành của sản phẩm trên trang thương mại điện tử [Tiki](www.tiki.vn).
 # Những việc đã làm và giải thích mã nguồn
+### Cách sử dụng Source Code:
+Sau khi cài đặt Selenium và tải source về giải nén sau đó chạy trong Command line bằng lệnh:<br>
+```python crawl.py```
 ### Cài đặt Selenium
 Trang web tiki cấm bot crawl dữ liệu từ trang này nên nhóm đã sử dụng Selenium giả lập Client để có thể crawl dữ liệu.
 Em cài đặt [Selenium](https://www.selenium.dev/), sau đó tải thêm  ```chromedriver.exe``` để có thể điều khiển được Chrome.
