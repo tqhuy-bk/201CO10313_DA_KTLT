@@ -1,0 +1,42 @@
+### Pandas là gì?
+Pandas là là thư viện mã nguồn mở với hiệu năng cao cho phân tích dữ liệu trong Python được phát triển bởi Wes McKinney  trong năm 2008.
+Chỉ với hơn 1 năm phát triển nó đã trở thành một thư viện chuẩn cho việc phân tích dữ liệu khi dùng Python, một số tính năng nổi bật của pandas:
++ Có thể xử lý tập dữ liệu khác nhau về định dạng: chuỗi thời gian, bảng không đồng nhất, ma trận dữ liệu.
++ Khả năng import dữ liệu từ nhiều nguồn khác nhau như CSV, DB/SQL
++ Có thể xử lý vô số phép toán cho tập dữ liệu: subsetting, slicing, filtering, merging, groupBy, re-ordering, and re-shaping,..
++ Xử lý dữ liệu mất mát theo ý người dùng mong muốn: bỏ qua hoặc chuyển sang 0
++ Xử lý, phân tích dữ liệu tốt như mô hình hoá và thống kê
++ Tích hợp tốt với các thư viện khác của python
++ Cung cấp hiệu suất tốt và có thể tăng tốc thậm chí hơn cả sử dụng Cython ( extension C cho python)
+###Cấu trúc dữ liệu của Pandas: Cấu trúc dữ liệu cơ bản của Pandas bao gồm: Series, DataFrame, Panel
+a. Series
+Series là mảng một chiều giống như mảng Numpy, nhưng nó bao gồm thêm một bảng đánh label. Series có thể được khởi tạo thông qua NumPy,
+kiểu Dict hoặc các dữ liệu vô hướng bình thường.
+Series có các thao tác gán, logic, tính toán với các biểu thức toán học hay thống kê bình thường như đã thao tác với NumPy.
+b. DataFrame:
+#DataFrame là mảng hai chiều được gán nhãn, nhưng không giống như NumPy, kiểu dữ liệu các cột là không đồng nhất, 
+cấu trúc dữ liệu thì giống với NumPy nhưng có khả năng thay đổi. DataFrame gồm các thuộc tính như sau:
++ Có khái niệm như một Table hoặc  SpreadSheet dữ liệu
++ Tương tự với mảng NumPy nhưng không phải là subclass của np.ndarray
++ Các cột dữ liệu là các kiểu không đồng nhất: float64, int, bool, …
++ Các cột của DataFrame là cấu trúc của Series
++ Nó có thể xem như một kiểu dữ liệu Dict của một cấu trúc Series nhưng cả hai cột và hàng đều được đánh chỉ mục (index)
++ Kích thước table có thể thay đổi: các cột có thể thêm hoặc xoá đi
+#Với mỗi chiều của Series/DataFrame được đánh chỉ mục, dù bất kể là mặc định hay không. Các chỉ mục là cần thiết cho việc tim kiếm hoặc để kết nối dữ liệu phù hợp trong pandas. 
+Các trục cần được đặt tên, ví dụ như mảng của các tháng “month” bao gôm các giá trị [Jan, Feb, … Dec].
+Đây là cách DataFrame biểu diễn các chỉ mục, tên cột và tên các cột chỉ mục với các kí tự V, W, X, Y, Z:
++ DataFrame được khởi tạo thông qua nhiều cách khác nhau như
++ Dict của mảng một chiều, list, dic hoặc cấu trúc Series
++ Mảng NumPy hai chiều
++ Cấu trúc hoặc các bản ghi của ndarray
++ Cấu trúc Series
++ Các DataFrame khác
+c.Panel
+Panel là mảng 3 chiều. Panel thì không được sử dụng rãi như như Series hay DataFrame và nó cũng không dễ hiển thị hay trừu tượng hoá như màn một chiều và hai chiều. 
+Cấu trúc của Panel:
++ items: Đây là axis 0. Mỗi phần tử thì tương ứng với DataFrame.
++ major_axis: Đây là axis 1. Mỗi phần tử tương ứng với một hàng của DataFrame
++ minor_axis: Đây là axis 2. Mỗi phần tử tương ứng với một cột của DataFrame
+
+Xem thêm [link](https://labs.septeni-technology.jp/pandas/tim-hieu-pandas-bai-2-cau-truc-du-lieu-cua-pandas/)
+[link](https://codelearn.io/sharing/xu-ly-du-lieu-voi-pandas-trong-python)
