@@ -59,8 +59,8 @@ Trong đó, Price được chuẩn hóa thành số nguyên không phải dạng
     data = {'Category':category,'Name':title,'Price':price,'Url':url_product}
     temp = pandas.DataFrame(data)
     temp.to_csv('output.csv',encoding='utf-8',index = False) 
-    ```
+```
 ### Kết quả thu được:
 Do Selenium là giả danh người dùng nên việc crawl không nhanh như những cách crawl khác nên việc crawl không được nhanh. Kết quả thu được trong trang Lazada là:
-- Khoảng 1500 sản phẩm bao gồm : điện thoại di động, điện tử và điện lạnh.
+- Khoảng 2000 sản phẩm bao gồm : điện thoại di động, điện tử và điện lạnh.
 - Thông tin sản phẩm gồm: category, name, price, url.
