@@ -1,0 +1,37 @@
+###Data Cleaning Techniques:
+Làm sạch dữ liệu là một phần thiết yếu của khoa học dữ liệu. Làm việc với dữ liệu không tinh khiết có thể dẫn đến nhiều khó khăn.
+Làm sạch dữ liệu có vẻ buồn tẻ và không thú vị, nhưng đó là một trong những nhiệm vụ quan trọng nhất mà bạn phải làm với tư cách là một chuyên gia khoa học dữ liệu. 
+Có dữ liệu sai hoặc chất lượng kém có thể gây bất lợi cho các quy trình và phân tích của bạn. Dữ liệu kém có thể khiến một thuật toán xuất sắc bị lỗi.
+Mặt khác, dữ liệu chất lượng cao có thể khiến một thuật toán đơn giản mang lại cho bạn kết quả vượt trội.
+Có nhiều kỹ thuật làm sạch dữ liệu và bạn nên làm quen với chúng để cải thiện chất lượng dữ liệu của mình. 
+Không phải tất cả dữ liệu đều hữu ích. Vì vậy, đó là một yếu tố chính khác ảnh hưởng đến chất lượng dữ liệu của bạn.
+ví dụ:
++Ví dụ: giả sử công ty của bạn có danh sách địa chỉ của nhân viên. Bây giờ, nếu dữ liệu của bạn cũng bao gồm một vài địa chỉ của khách hàng, 
+thì điều đó có làm hỏng danh sách không? Và những nỗ lực của bạn để phân tích danh sách sẽ vô ích sao?
+### Tác dụng của việc làm sạch dữ liệu:
++ Có dữ liệu sạch (không có các giá trị sai và không nhất quán) có thể giúp bạn thực hiện phân tích nhanh hơn rất nhiều.
+Bạn sẽ tiết kiệm được một lượng thời gian đáng kể bằng cách thực hiện công việc này trước đó.Khi làm sạch dữ liệu trước khi sử dụng, bạn có thể tránh được nhiều lỗi.
+Nếu bạn sử dụng dữ liệu có chứa giá trị sai, kết quả của bạn sẽ không chính xác.Và rất có thể, bạn sẽ phải thực hiện lại toàn bộ nhiệm vụ một lần nữa,
+điều này có thể gây lãng phí rất nhiều thời gian.
+Nếu bạn chọn xóa dữ liệu của mình trước khi sử dụng, bạn có thể tạo kết quả nhanh hơn và tránh làm lại toàn bộ tác vụ.
++ Lỗi tính hợp lệ xảy ra khi phương thức nhập không được kiểm tra đúng cách. Bạn có thể đang sử dụng bảng tính để thu thập dữ liệu của mình. 
+Và bạn có thể nhập sai thông tin vào các ô của bảng tính.
++ Tính hợp lệ của dữ liệu của bạn là mức độ nó tuân theo các quy tắc của các yêu cầu cụ thể của bạn.
+Ví dụ: bạn làm cách nào để nhập số điện thoại của nhiều khách hàng khác nhau nhưng ở một số nơi, bạn đã thêm địa chỉ email vào dữ liệu.
+Bây giờ vì nhu cầu của bạn rõ ràng là về số điện thoại, nên các địa chỉ email sẽ không hợp lệ.
++ 
+
+###Data Cleansing Techniques:
+Sự lựa chọn của bạn về các kỹ thuật làm sạch dữ liệu phụ thuộc vào rất nhiều yếu tố. Đầu tiên, bạn đang xử lý loại dữ liệu nào? 
+Chúng là giá trị số hay chuỗi? Trừ khi bạn có quá ít giá trị để xử lý, bạn cũng không nên mong đợi làm sạch dữ liệu của mình chỉ bằng một kỹ thuật.
+Bạn có thể cần sử dụng nhiều kỹ thuật để có kết quả tốt hơn. Bạn càng phải xử lý nhiều loại dữ liệu, bạn sẽ phải sử dụng nhiều kỹ thuật làm sạch hơn.
+Làm quen với tất cả các phương pháp này sẽ giúp bạn sửa lỗi và loại bỏ dữ liệu vô ích.
++  Remove Irrelevant Values
++  Get Rid of Duplicate Values
++  Avoid Typos (and similar errors)
++  Convert Data Types
++  Take Care of Missing Values
+
+
+Xem thêm [link](https://www.upgrad.com/blog/data-cleaning-techniques/?fbclid=IwAR1xcqC8U5fzEuD-BnloM7AR0hjlqwUzuvfR6RaVc38dp04c85KtiffPyCU)
+(https://www.digitalvidya.com/blog/data-cleaning-techniques/)
