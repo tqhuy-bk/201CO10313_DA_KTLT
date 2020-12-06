@@ -20,14 +20,20 @@ def get_html(url):
     browser.quit()
     return html_source
 if __name__ == '__main__':
-    url = ['https://www.lazada.vn/laptop/?page=3&spm=a2o4n.home.cate_1.3.4b576afeRhRFkd']
+    url = ['https://www.lazada.vn/tu-lanh/samsung/?spm=a2o4n.searchlistcategory.card.2.14f65561mtX44P&&from=onesearch_category_12625']
     title = []
     price = []
     url_product = []
     category = []
     for x in url:
         html_tree = html.fromstring(get_html(x))
-        category_url = html_tree.xpath("//div[@class='ant-col-20 ant-col-push-4 c1z9Ut']/div[@class='cUQuRr']/h1/text()")[0]
+        category_url_temp = html_tree.xpath("//div[@class='ant-col-20 ant-col-push-4 c1z9Ut']/div[@class='cUQuRr']/h1/text()")[0]
+        if(category_url_temp =='Máy Lạnh' or category_url_temp =='Tủ Lạnh' or category_url_temp=='Tủ Đông'):
+            category_url = "Điện lạnh"
+        elif(category_url_temp == 'Điện Thoại Di Động' or category_url_temp=='Điện Thoại Di Động Nokia Chính Hãng'):
+            category_url = "Điện thoại di động"
+        else:
+            category_url = "Điện tử"
         for product in html_tree.xpath("//div[@class='c2prKC']"):
             title_temp = product.xpath(".//div[@class='c16H9d']/a/text()")
             title.append(title_temp[0])
@@ -39,9 +45,5 @@ if __name__ == '__main__':
             category.append(category_url)
     data = {'Category':category,'Name':title,'Price':price,'Url':url_product}
     temp = pandas.DataFrame(data)
-    temp.to_csv('out_put.txt')            
-    
-
-    
-
+    temp.to_csv('output.csv',encoding='utf-8',index = False)            
     
