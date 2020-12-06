@@ -30,24 +30,37 @@ def get_html(url):
 Có nhiều cách để có thể load nhiều trang sản phẩm, tại trang Lazada các trang sản phẩm đều có ở dạng "https://www.lazada.vn/tv-video-am-thanh-thiet-bi-deo-cong-nghe/?page=4&spm=a2o4n.searchlistcategory.cate_3.1.27a2545cpgrRBx", ở đây chỉ cần thay số ở chổ "page=1" thì có thể load sang trang mới. Tạo vòng lặp để crawl dữ liệu.<br>
 Tuy nhiên ở Crawler ban đầu này em chỉ sử dụng một list url rồi tạo vong lặp để crawl dữ liệu trong các url đã được định sẵn đó.
 ### Lấy dữ liệu giá thành sản phẩm và lưu:
-Dữ liệu về giá và tên sản phẩm thu được từ mỗi sản phẩm sẽ được lưu trong một list và ghi vào file scv:
+Dữ liệu về sản phẩm được format bằng DataFrame thư viện Pandas.<br>
+Các cột thông tin gồm có: Category,Name,Price và Url.<br>
+Trong đó, Price được chuẩn hóa thành số nguyên không phải dạng chữ như trên website. Và Category dùng để phân chia sản phẩm thành ba loại đó là: Điện thoại di động, Điện tử và Điện lạnh. Dữ liệu được lưu trữ vào file csv để tiện cho việc phân tích và sử dụng dữ liệu sau này.
 ```
-with open('output_test.scv','w', encoding="utf8") as csv_file:
-        writer = csv.writer(csv_file)
-        writer.writerow(['Title','Price Current','Price Original'])
-        for x in url:
-            html_tree = html.fromstring(get_html(x))
-            for product in html_tree.xpath("//div[@class='c2prKC']"):
-                title = product.xpath(".//div[@class='c16H9d']/a/text()")
-                price_current = product.xpath(".//span[@class='c13VH6']/text()")
-                price_original = product.xpath(".//span[@class='c1-B2V']/del[@class='c13VH6']/text()")
-                if len(price_original) == 0:
-                    writer.writerow([title[0],price_current[0],None])
-                else:
-                    writer.writerow([title[0],price_current[0],price_original[0]])
-```
+    title = []
+    price = []
+    url_product = []
+    category = []
+    for x in url:
+        html_tree = html.fromstring(get_html(x))
+        category_url_temp = html_tree.xpath("//div[@class='ant-col-20 ant-col-push-4 c1z9Ut']/div[@class='cUQuRr']/h1/text()")[0]
+        if(category_url_temp =='Máy Lạnh' or category_url_temp =='Tủ Lạnh' or category_url_temp=='Tủ Đông'):
+            category_url = "Điện lạnh"
+        elif(category_url_temp == 'Điện Thoại Di Động' or category_url_temp=='Điện Thoại Di Động Nokia Chính Hãng'):
+            category_url = "Điện thoại di động"
+        else:
+            category_url = "Điện tử"
+        for product in html_tree.xpath("//div[@class='c2prKC']"):
+            title_temp = product.xpath(".//div[@class='c16H9d']/a/text()")
+            title.append(title_temp[0])
+            price_current = product.xpath(".//span[@class='c13VH6']/text()")
+            format_price = (int)(price_current[0][:-2].replace(".",""))
+            price.append(format_price)
+            url_product_one = 'https://' + (product.xpath(".//div[@class='c16H9d']/a/@href")[0])[6:]
+            url_product.append(url_product_one)
+            category.append(category_url)
+    data = {'Category':category,'Name':title,'Price':price,'Url':url_product}
+    temp = pandas.DataFrame(data)
+    temp.to_csv('output.csv',encoding='utf-8',index = False) 
+    ```
 ### Kết quả thu được:
-Crawler chỉ mới sơ khai chạy theo selenium nên còn khá chậm, code vẫn còn chưa hoàn chỉnh để có thể crawl dữ liệu lớn. Và kết quả thu được:
-- Số lượng sản phẩm khoảng 500 sản phẩm.
-- Thông tin: Tên sản phẩm, giá hiện tại của sản phẩm và giá trước khi khuyến mãi của sản phẩm.
-
+Do Selenium là giả danh người dùng nên việc crawl không nhanh như những cách crawl khác nên việc crawl không được nhanh. Kết quả thu được trong trang Lazada là:
+- Khoảng 1500 sản phẩm bao gồm : điện thoại di động, điện tử và điện lạnh.
+- Thông tin sản phẩm gồm: category, name, price, url.
