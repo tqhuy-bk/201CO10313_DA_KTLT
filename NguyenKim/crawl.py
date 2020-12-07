@@ -20,7 +20,7 @@ def get_html(url):
     return html_source
 
 if __name__ == '__main__':
-    url = ['https://www.nguyenkim.com/dien-thoai-di-dong/page-','https://www.nguyenkim.com/tu-lanh/page-','https://www.nguyenkim.com/tivi-man-hinh-lcd/page-']
+    url = ['https://www.nguyenkim.com/dien-thoai-di-dong/page-']
     title = []
     price = []
     url_product = []
@@ -39,7 +39,7 @@ if __name__ == '__main__':
                 title_temp = product.xpath(".//div[@class='nk-product-desc']/p/span/text()")
                 title.append(title_temp[0]) 
                 price_current = product.xpath(".//div[@class='price-now']/p[@class='price-new cate-new']/span/text()")
-                format_price = int(price_current[0][:-1].replace(".",""))
+                format_price = (int)(price_current[0][:-1].replace(".",""))
                 price.append(format_price)
                 url_product_one =  product.xpath("./a[@class='nk-link-product']/@href")[0]
                 url_product.append(url_product_one)
